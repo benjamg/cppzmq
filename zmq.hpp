@@ -402,13 +402,13 @@ namespace zmq
 
         inline ~context_t () ZMQ_NOTHROW
         {
-            int rc = zmq_ctx_destroy (ptr);
+            int rc = zmq_ctx_term (ptr);
             ZMQ_ASSERT (rc == 0);
         }
 
         inline void close() ZMQ_NOTHROW
         {
-            int rc = zmq_ctx_destroy (ptr);
+            int rc = zmq_ctx_shudown (ptr);
             ZMQ_ASSERT (rc == 0);
         }
 
